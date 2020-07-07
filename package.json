@@ -1,0 +1,24 @@
+{
+  "name": "exmysql",
+  "version": "1.0.0",
+  "description": "nodejs mysql sequelize",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frisart/exmysql.git"
+  },
+  "keywords": [
+    "nodejs",
+    "mysql",
+    "sequeloze\u001b[D\u001b[i"
+  ],
+  "author": "gery",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/frisart/exmysql/issues"
+  },
+  "homepage": "https://github.com/frisart/exmysql#readme"
+}
