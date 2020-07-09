@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+const db = require("./app/models");
+
 const app = express();
 
 let whitelis = [
@@ -23,6 +25,9 @@ app.use(cors(corsOption));
 // parse request application/json
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended:true}));
+
+// sync database
+db.sequelize.sync();
 
 app.get('/', (req, res) => {
      res.json({
