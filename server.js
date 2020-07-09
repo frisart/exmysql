@@ -35,6 +35,10 @@ app.get('/', (req, res) => {
      });
 });
 
+// Post Routes
+
+require("./app/routes/post.routes")(app);
+
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
