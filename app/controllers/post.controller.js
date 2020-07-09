@@ -85,17 +85,57 @@ exports.update = (req, res) => {
 
 // Delete a post
 exports.delete = (req, res) => {
+    const id = req.params.id;
 
-}
+    Post.destroy({
+        where: {id:id}
+    }).then((result) => {
+        if (result == 1) {
+            res.send({
+                message: "Post was deleted Successfuly"
+            });
+        } else {
+            res.send({
+                message: `Cannot delete post with id = ${id}` 
+            });
+        }
+    }).catch((err) => {
+        res.status(500).send({
+            message: "Could not delete post with id " + id
+        })
+    });
+};
 
 
 // Delete All Post
 exports.deleteAll = (req, res) => {
+       Post.destroy({
+        where: {},
+        truncate: false
+    }).then((result) => {
+        res.send({
+            message: `${result} Posts were delete successfuly`
+        });
+    }).catch((err) => {
+        res.status(500).send({
+            message: "Could not delete post with id " + id
+        })
+    });
 
 }
 
 
 // Find All Published
-exports.findOnePublishe = (req, res) => {
+exports.findAllPublished = (req, res) => {
+    Post.findAll({
+        where: { published: true }
+    }).then((result) => {
+       res.send(result); 
 
-}
+    }).catch((err) => {
+        res.status(500).send({
+            message:
+                err.message || "Some error occured retrieving posts"
+        })
+    });
+};
